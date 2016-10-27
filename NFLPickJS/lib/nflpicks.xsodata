@@ -1,0 +1,3 @@
+service {
+	"NFLPickApp.NFLPickDB::NFLPickViews.V_NFL_PICK" as "nflpicks" keys generate local "ID";
+}

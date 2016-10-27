@@ -1,0 +1,15 @@
+namespace NFLPickApp.NFLPickDB;
+
+using "NFLPickApp.NFLPickDB::NFLPickTables.TRANS_PICK" as PICK;
+using "NFLPickApp.NFLPickDB::NFLPickTables.DIM_TEAM" as TEAM;
+
+context NFLPickViews {
+
+VIEW V_NFL_PICK as 
+	select from PICK
+	join TEAM on PICK.TEAM_PICK_KEY.TEAM_KEY = TEAM.TEAM_KEY
+ {	TEAM.TEAM_NAME, 
+	PICK.WAGER_POINTS
+	};
+
+};

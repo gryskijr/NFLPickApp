@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="NFLPickApp.NFLPickDB::CAV_PICKS" applyPrivilegeType="NONE" dataCategory="CUBE" dimensionType="" schemaVersion="3.0" defaultClient="$$client$$" visibility="reportingEnabled" calculationScenarioType="TREE_BASED" enforceSqlExecution="false">
+<descriptions defaultDescription="NFL_PICKS"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="NFLPickApp.NFLPickDB::NFLPickTables.TRANS_PICK">
+    <resourceUri>NFLPickApp.NFLPickDB::NFLPickTables.TRANS_PICK</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="NFLPicks">
+    <viewAttributes>
+      <viewAttribute id="GAMESHEET_KEY_GAMESHEET_KEY">
+        <descriptions defaultDescription="GAMESHEET_KEY_GAMESHEET_KEY"/>
+      </viewAttribute>
+      <viewAttribute id="GAME_KEY_GAME_KEY">
+        <descriptions defaultDescription="GAME_KEY_GAME_KEY"/>
+      </viewAttribute>
+      <viewAttribute id="PICK_KEY">
+        <descriptions defaultDescription="PICK_KEY"/>
+      </viewAttribute>
+      <viewAttribute id="TEAM_PICK_KEY_TEAM_KEY">
+        <descriptions defaultDescription="TEAM_PICK_KEY_TEAM_KEY"/>
+      </viewAttribute>
+      <viewAttribute id="WAGER_POINTS">
+        <descriptions defaultDescription="WAGER_POINTS"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="NFLPickApp.NFLPickDB::NFLPickTables.TRANS_PICK">
+      <mapping xsi:type="Calculation:AttributeMapping" target="GAMESHEET_KEY_GAMESHEET_KEY" source="GAMESHEET_KEY.GAMESHEET_KEY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GAME_KEY_GAME_KEY" source="GAME_KEY.GAME_KEY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PICK_KEY" source="PICK_KEY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TEAM_PICK_KEY_TEAM_KEY" source="TEAM_PICK_KEY.TEAM_KEY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="WAGER_POINTS" source="WAGER_POINTS"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="NFLPicks">
+  <attributes>
+    <attribute id="TEAM_PICK_KEY_TEAM_KEY$local">
+      <keyMapping columnObjectName="NFLPicks" columnName="TEAM_PICK_KEY_TEAM_KEY"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="WAGER_POINTS" order="1" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="WAGER_POINTS"/>
+      <measureMapping columnObjectName="NFLPicks" columnName="WAGER_POINTS"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+  <sharedDimensions>
+    <logicalJoin associatedObjectUri="NFLPickApp.NFLPickDB::CAV_DIM_TEAM">
+      <attributes>
+        <attributeRef>TEAM_PICK_KEY_TEAM_KEY$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>TEAM_KEY</attributeName>
+      </associatedAttributeNames>
+      <properties joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures/>
+    </logicalJoin>
+  </sharedDimensions>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="NFLPicks" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="30" y="233"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="NFLPicks" modelObjectNameSpace="StarJoinViewNodeInput" modelObjectType="repository">
+      <upperLeftCorner x="20" y="34"/>
+      <rectangleSize width="272"/>
+    </shape>
+    <shape modelObjectName="NFLPickApp.NFLPickDB::CAV_DIM_TEAM" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

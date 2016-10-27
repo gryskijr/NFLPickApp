@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="NFLPickApp.NFLPickDB::CAV_DIM_TEAM" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" defaultClient="$$client$$" visibility="internal" outputViewType="Projection" calculationScenarioType="TREE_BASED" enforceSqlExecution="false">
+<descriptions defaultDescription="DIM_TEAM"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="NFLPickApp.NFLPickDB::NFLPickTables.DIM_TEAM">
+    <resourceUri>NFLPickApp.NFLPickDB::NFLPickTables.DIM_TEAM</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews/>
+<logicalModel id="NFLPickApp.NFLPickDB::NFLPickTables.DIM_TEAM">
+  <attributes>
+    <attribute id="TEAM_ABBREVIATION" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TEAM_ABBREVIATION"/>
+      <keyMapping schemaName="DLSH5HPBJRAXWIYJ_NFLPICKAPP_HDI_CONTAINER" columnObjectName="NFLPickApp.NFLPickDB::NFLPickTables.DIM_TEAM" columnName="TEAM_ABBREVIATION"/>
+    </attribute>
+    <attribute id="TEAM_ALT_ABBREVIATION" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TEAM_ALT_ABBREVIATION"/>
+      <keyMapping schemaName="DLSH5HPBJRAXWIYJ_NFLPICKAPP_HDI_CONTAINER" columnObjectName="NFLPickApp.NFLPickDB::NFLPickTables.DIM_TEAM" columnName="TEAM_ALT_ABBREVIATION"/>
+    </attribute>
+    <attribute id="TEAM_CITY" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TEAM_CITY"/>
+      <keyMapping schemaName="DLSH5HPBJRAXWIYJ_NFLPICKAPP_HDI_CONTAINER" columnObjectName="NFLPickApp.NFLPickDB::NFLPickTables.DIM_TEAM" columnName="TEAM_CITY"/>
+    </attribute>
+    <attribute id="TEAM_KEY" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TEAM_KEY"/>
+      <keyMapping schemaName="DLSH5HPBJRAXWIYJ_NFLPICKAPP_HDI_CONTAINER" columnObjectName="NFLPickApp.NFLPickDB::NFLPickTables.DIM_TEAM" columnName="TEAM_KEY"/>
+    </attribute>
+    <attribute id="TEAM_LONG_NAME" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TEAM_LONG_NAME"/>
+      <keyMapping schemaName="DLSH5HPBJRAXWIYJ_NFLPICKAPP_HDI_CONTAINER" columnObjectName="NFLPickApp.NFLPickDB::NFLPickTables.DIM_TEAM" columnName="TEAM_LONG_NAME"/>
+    </attribute>
+    <attribute id="TEAM_NAME" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TEAM_NAME"/>
+      <keyMapping schemaName="DLSH5HPBJRAXWIYJ_NFLPICKAPP_HDI_CONTAINER" columnObjectName="NFLPickApp.NFLPickDB::NFLPickTables.DIM_TEAM" columnName="TEAM_NAME"/>
+    </attribute>
+    <attribute id="TEAM_STATE" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TEAM_STATE"/>
+      <keyMapping schemaName="DLSH5HPBJRAXWIYJ_NFLPICKAPP_HDI_CONTAINER" columnObjectName="NFLPickApp.NFLPickDB::NFLPickTables.DIM_TEAM" columnName="TEAM_STATE"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

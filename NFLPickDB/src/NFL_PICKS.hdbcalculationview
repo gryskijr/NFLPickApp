@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="NFLPickApp.NFLPickDB::NFL_PICKS" applyPrivilegeType="NONE" dataCategory="CUBE" dimensionType="" schemaVersion="3.0" defaultClient="$$client$$" visibility="reportingEnabled" calculationScenarioType="TREE_BASED" enforceSqlExecution="false">
+<descriptions defaultDescription="NFL_PICKS"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="NFLPickApp.NFLPickDB::CAV_PICKS">
+    <resourceUri>NFLPickApp.NFLPickDB::CAV_PICKS</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Picks">
+    <viewAttributes>
+      <viewAttribute id="TEAM_NAME">
+        <descriptions defaultDescription="TEAM_NAME"/>
+      </viewAttribute>
+      <viewAttribute id="WAGER_POINTS" aggregationType="sum">
+        <descriptions defaultDescription="WAGER_POINTS"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="NFLPickApp.NFLPickDB::CAV_PICKS">
+      <mapping xsi:type="Calculation:AttributeMapping" target="TEAM_NAME" source="TEAM_NAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="WAGER_POINTS" source="WAGER_POINTS"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Picks">
+  <attributes>
+    <attribute id="TEAM_NAME" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TEAM_NAME"/>
+      <keyMapping columnObjectName="Picks" columnName="TEAM_NAME"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="WAGER_POINTS" order="2" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="WAGER_POINTS"/>
+      <measureMapping columnObjectName="Picks" columnName="WAGER_POINTS"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+  <sharedDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Picks" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="30" y="210"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="Picks" modelObjectNameSpace="StarJoinViewNodeInput" modelObjectType="repository">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

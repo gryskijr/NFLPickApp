@@ -1,0 +1,59 @@
+namespace NFLPickApp.NFLPickDB;
+context NFLPickTables {
+
+/* DIM_TEAM table */
+entity DIM_TEAM {
+	key TEAM_KEY: Integer;
+	TEAM_NAME: String(50);
+	TEAM_CITY: String(50);
+	TEAM_STATE: String(2);
+	TEAM_ABBREVIATION: String(3);
+	TEAM_LONG_NAME: String(50);
+	TEAM_ALT_ABBREVIATION: String(3);
+};
+
+/* TRANS_GAME table */
+entity TRANS_GAME {
+	key GAME_KEY: Integer;
+	GAME_DATE: LocalDate;
+	GAME_TIME: LocalTime;
+	AWAY_TEAM: String(100);
+	HOME_TEAM: String(100);
+	AWAY_TEAM_KEY: Association to DIM_TEAM; 
+	HOME_TEAM_KEY: Association to DIM_TEAM;
+	AWAY_SCORE: Integer;
+	HOME_SCORE: Integer;
+	WEEK_NAME: String(10);
+	WEEK_KEY: Association to TRANS_WEEK;
+};
+
+/* TRANS_GAMESHEET table */
+entity TRANS_GAMESHEET {
+	key GAMESHEET_KEY: Integer;
+	WEEK_KEY: Association to TRANS_WEEK;
+	EMPLOYEE_ID: Integer;
+	PLAYER_NAME: String(50);
+	TIEBREAKER_SCORE: Integer;
+	CREATION_TIMESTAMP: UTCTimestamp;
+};
+
+/* TRANS_PICK table */
+entity TRANS_PICK {
+	key PICK_KEY: Integer;
+	GAMESHEET_KEY: Association to TRANS_GAMESHEET;
+	GAME_KEY: Association to TRANS_GAME;
+	TEAM_PICK_KEY: Association to DIM_TEAM;
+	WAGER_POINTS: Integer;
+};
+
+/* TRANS_WEEK table */
+entity TRANS_WEEK {
+	key WEEK_KEY: Integer;
+	WEEK_NAME: String(10);
+	WEEK_NUMBER: Integer;
+	WEEK_YEAR: Integer;
+	TIEBREAKER_GAME_KEY: Association to TRANS_GAME;
+	TIEBREAKER_SCORE: Integer;
+};
+
+};

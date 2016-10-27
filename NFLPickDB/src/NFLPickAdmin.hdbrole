@@ -1,0 +1,32 @@
+{
+	"role":{
+		"name": "NFLPickApp.NFLPickDB::NFLPickAdmin",
+		"object_privileges":[
+			{
+				"name": "NFLPickApp.NFLPickDB::NFLPickTables.DIM_TEAM",
+				"type": "TABLE",
+				"privileges": [ "SELECT" ]
+			},
+			{
+				"name": "NFLPickApp.NFLPickDB::NFLPickTables.TRANS_GAME",
+				"type": "TABLE",
+				"privileges": [ "SELECT" ]
+			},
+			{
+				"name": "NFLPickApp.NFLPickDB::NFLPickTables.TRANS_GAMESHEET",
+				"type": "TABLE",
+				"privileges": [ "SELECT" ]
+			},
+			{
+				"name": "NFLPickApp.NFLPickDB::NFLPickTables.TRANS_PICK",
+				"type": "TABLE",
+				"privileges": [ "SELECT" ]
+			},
+			{
+				"name": "NFLPickApp.NFLPickDB::NFLPickTables.TRANS_WEEK",
+				"type": "TABLE",
+				"privileges": [ "SELECT" ]
+			}	
+		]
+	}
+}
