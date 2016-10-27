@@ -10,7 +10,6 @@ entity DIM_TEAM {
 	TEAM_ABBREVIATION: String(3);
 	TEAM_LONG_NAME: String(50);
 	TEAM_ALT_ABBREVIATION: String(3);
-	TEST_COLUMN: String(100);
 };
 
 /* TRANS_GAME table */
